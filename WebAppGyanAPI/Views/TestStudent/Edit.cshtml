@@ -1,0 +1,98 @@
+﻿@model WebAppGyanAPI.Models.TestStudent
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Edit Student Detail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit" asp-controller="TestStudent">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <input asp-for="Course" class="form-control" />
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <input id="btnAdd" type="button" class="btn btn-success" value="AddMoreSubject" onclick="AddTextBox()" />
+                <br />
+               
+                <div id="TextBoxContainer">
+                    <!--Textboxes will be added here -->
+                </div>
+                <br />
+                <asp:Button ID="btnPost" runat="server" Text="Post" OnClick="Post" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    function GetDynamicTextBox(value) {
+        return '<input name = "DynamicTextBox" class="form-control" type="text" value = "' + value + '" />' +
+            '<input type="button" value="Remove" onclick = "RemoveTextBox(this)" class="btn btn-primary" />'
+    }
+    function AddTextBox() {
+        var div = document.createElement('DIV');
+        div.innerHTML = GetDynamicTextBox("");
+        document.getElementById("TextBoxContainer").appendChild(div);
+    }
+
+    function RemoveTextBox(div) {
+        document.getElementById("TextBoxContainer").removeChild(div.parentNode);
+    }
+
+    //function RecreateDynamicTextboxes() {
+    //    var values = eval('<%=Values%>');
+    //    if (values != null) {
+    //        var html = "";
+    //        for (var i = 0; i < values.length; i++) {
+    //            html += "<div>" + GetDynamicTextBox(values[i + 1]) + "</div>";
+    //        }
+    //        document.getElementById("TextBoxContainer").innerHTML = html;
+    //    }
+    //}
+    //window.onload = RecreateDynamicTextboxes;
+</script>

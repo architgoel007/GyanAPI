@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebAppGyanAPI.Models.TestEnrollStudentList>
+@{
+    ViewData["Title"] = "EnrollListIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Student List</h1>
+<p style="text-align:right;margin-right:20px;">
+    <a class="btn btn-outline-primary" asp-controller="TestEnrollStudentList" asp-action="Create">Create New List</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => student.Id)</td>
+            <td>@Html.DisplayFor(modelItem => student.Name)</td>
+        </tr>
+        }
+    </tbody>
+</table>

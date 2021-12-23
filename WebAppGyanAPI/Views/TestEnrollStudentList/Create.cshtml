@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebAppGyanAPI.Models.TestEnrollStudentList>
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>EnrollIndex</h2>
+<head>
+    <title>Dynamic TextBox</title>
+    <script language="javascript" type="text/javascript">
+        function TextBox() {
+            $("#createTextbox input[name='mytext']").each(function () {
+               
+            });
+            createTextbox.innerHTML = createTextbox.innerHTML + "<input type='text' name='mytext' />"
+        }
+        function RemoveBox() {
+            $("#createTextbox input[name='mytext']").each(function () {
+                var textvalue = $(this).val();
+            });
+            $('#createTextbox').children().last().remove();
+        }
+        function SubmitList() {           
+            var data = [];
+            //var index = 1;
+            $("#createTextbox input[name='mytext']").each(function () {
+                data.push({Name: $(this).val()});
+                //index++;
+            });
+            data = JSON.stringify(data);
+            $.ajax({
+                type: 'POST',
+                url: '/TestEnrollStudentList/CreateAsyc',                
+                data:data,
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                function(data) {
+                   alert(data);
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+
+    <form name="form" class="form-control">
+        <input type="button" value="AddTextBox" onClick="TextBox()" id="btnadd">
+        <div id="createTextbox"></div> 
+        <input type="button" value="RemoveTextBox" onClick="RemoveBox()" id="btnremove">
+        <div>
+           <button type="button" class="btn btn-primary" onclick="SubmitList()">Submit</button>
+        </div>
+    </form>
+</body>

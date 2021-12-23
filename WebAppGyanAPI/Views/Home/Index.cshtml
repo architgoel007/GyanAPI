@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+
+}
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+    <head>
+        
+        <script type="text/javascript">
+            //Dynamic textbox Without btn
+            //function addORremoveTextbox(paramBluredElement) {
+            //    debugger;
+            //    var textBoxes = $(".txt"), emptyTextbox, emptyTextboxLength = 0;
+            //    textBoxes.each(function () {
+            //        if ($(this).val() == "") { emptyTextbox = $(this); emptyTextboxLength++;}
+            //    });
+            //    var bluredElement = $(paramBluredElement), val = bluredElement.val();
+            //    if (val != "" && emptyTextboxLength == 0) {
+            //        $(".textboxHolder").append('<input type="text" style="width: 30px" class="txt" onblur="addORremoveTextbox(this)"/>');
+            //    } else if (emptyTextboxLength > 1) {
+            //        if (emptyTextboxLength!=('.textboxHolder').children().last)
+            //        emptyTextbox.remove();
+            //    }
+            //}
+            //Dynamic textbox With btn
+            //function CreateTextbox() {
+            //    var i = 1;
+            //    textboxField.innerHTML = textboxField.innerHTML + "<input type='text' style='width:30px' name='mytext'+ i/>"
+
+            //}
+            //function RemoveTextbox() {
+            //    $("#textboxField input[name='mytext']").each(function () {
+            //        var textvalue = $(this).val();
+            //    });
+            //    $('#textboxField').children().last().remove();
+            //}
+
+            //Dynamic Form
+
+        </script>
+    </head>
+    <body>
+
+        @*<h3>Dynamic Array Without button</h3>
+        <div class="textboxHolder">
+            <input type="text" class="txt" style="width: 30px" onblur="addORremoveTextbox(this)" />
+        </div>
+
+        <br />
+        <h3>Dynamic Array With Add and Delete button</h3>
+        <div>
+            <input type="button" value="createBox" onClick="CreateTextbox()" />
+            <div id="textboxField"></div>
+            <input type="button" value="RemoveBox" onClick="RemoveTextbox()" />
+        </div>*@
+        <h5>Dynamic form</h5>
+        <table border="1" bgcolor="lightblue">
+            <caption><b>Input Marks</b></caption>
+            <tr>
+                <th rowspan="2">Name</th>
+                <th colspan="2">Score</th>
+            </tr>
+            <tr>
+                <td>Hindi</td>
+                <td>English</td>
+                <td>Mathematics</td>
+                <td>Science</td>
+                <td>Programming</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="sname" /></td>
+                <td><input type="text" id="shindi" /></td>
+                <td><input type="text" id="senglish" /></td>
+                <td><input type="text" id="smathematics" /></td>
+                <td><input type="text" id="sscience" /></td>
+                <td><input type="text" id="sprogramming" /></td>
+            </tr>
+            <tr>
+                <th colspan="5" height="30"></th>
+            </tr>
+        </table>
+    </body>

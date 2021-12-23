@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebAppGyanAPI.Models.TestStudent>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Student List</h1>
+<p style="text-align:right;margin-right:20px;">
+    <a class="btn btn-outline-primary" asp-controller="TestStudent" asp-action="Create">Add Student</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.Address)</th>
+            <th>@Html.DisplayNameFor(model => model.Course)</th>
+            <th>@Html.DisplayNameFor(model => model.City)</th>
+            <th>@Html.DisplayNameFor(model => model.Mobile)</th>
+            <th>@Html.DisplayNameFor(model => model.Subject)</th>
+            <th style="text-align:center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => student.Id)</td>
+            <td>@Html.DisplayFor(modelItem => student.Name)</td>
+            <td>@Html.DisplayFor(modelItem => student.Gender)</td>
+            <td>@Html.DisplayFor(modelItem => student.Address)</td>
+            <td>@Html.DisplayFor(modelItem => student.Course)</td>
+            <td>@Html.DisplayFor(modelItem => student.City)</td>
+            <td>@Html.DisplayFor(modelItem => student.Mobile)</td>
+            <td>@Html.DisplayFor(modelItem => student.Subject)</td>
+            <td style="text-align:center">
+                <a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@student.Id">Edit</a>
+                <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@student.Id">Details</a>
+                <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@student.Id" onclick="return confirm('Are You Sure Want to delete??')">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
